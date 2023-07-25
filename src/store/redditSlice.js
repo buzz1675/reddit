@@ -21,7 +21,7 @@ const redditSlice = createSlice({
     setPosts(state, action) {
       state.posts = action.payload;
     },
-    startGetPosts(state) {
+    startGetPost(state) {
       state.isLoading = true;
       state.error = false;
     },
@@ -67,10 +67,10 @@ const redditSlice = createSlice({
 export const {
   setPosts,
   getPostFailed,
-  getPostsSuccess,
-  startGetPosts,
+  getPostSuccess,
+  startGetPost,
   setSearchTerm,
-  setSelectedSubreddit,
+  setSelectedSubReddits,
   toggleShowingComments,
   getCommentsFailed,
   getCommentsSuccess,
@@ -81,7 +81,7 @@ export default redditSlice.reducer;
 
 export const fetchSearchPosts = (searchTerm) => async (dispatch) => {
   try {
-    dispatch(startGetPosts());
+    dispatch(startGetPost());
     const posts = await getPosts(searchTerm);
     const postsWithGoodData = posts.map((post) => ({
       ...post,
@@ -90,7 +90,7 @@ export const fetchSearchPosts = (searchTerm) => async (dispatch) => {
       loadingComments: false,
       errorComments: false,
     }));
-    dispatch(getPostsSuccess(postsWithGoodData));
+    dispatch(getPostSuccess(postsWithGoodData));
   } catch (error) {
     dispatch(getPostFailed());
   }
@@ -98,7 +98,7 @@ export const fetchSearchPosts = (searchTerm) => async (dispatch) => {
 
 export const getSubPosts = (subReddit) => async (dispatch) => {
   try {
-    dispatch(startGetPosts());
+    dispatch(startGetPost());
     const posts = await getSubRedditPosts(subReddit);
     const postsWithGoodData = posts.map((post) => ({
       ...post,
@@ -107,7 +107,7 @@ export const getSubPosts = (subReddit) => async (dispatch) => {
       loadingComments: false,
       errorComments: false,
     }));
-    dispatch(getPostsSuccess(postsWithGoodData));
+    dispatch(getPostSuccess(postsWithGoodData));
   } catch (error) {
     dispatch(getPostFailed());
   }

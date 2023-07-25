@@ -1,14 +1,13 @@
 import React, { useEffect } from "react";
 import {
-  selectSelectedSubReddit,
-  setSelectedSubreddit,
+  selectSelectedSubReddit, setSelectedSubReddits,
 } from "../../store/redditSlice";
 import { useDispatch, useSelector } from "react-redux";
-import { selectSubreddits, fetchSubReddits } from "../../store/subRedditSlice";
+import { selectSubReddits, fetchSubReddits } from "../../store/subRedditSlice";
 
-export const Sidebar = (props) => {
+export const Sidebar = () => {
   const dispatch = useDispatch();
-  const subReddits = useSelector(selectSubreddits);
+  const subReddits = useSelector(selectSubReddits);
   const selectedSubReddits = useSelector(selectSelectedSubReddit);
 
   useEffect(() => {
@@ -23,10 +22,11 @@ export const Sidebar = (props) => {
           <li>
             <button
               type="button"
-              onClick={() => dispatch(setSelectedSubreddit(subReddit.url))}
+              onClick={() => dispatch(setSelectedSubReddits(subReddit.url))}
             >
               {subReddit.display_name}
             </button>
+            <img src={subReddit.icon_img} alt={subReddit.display_name} />
           </li>
         ))}
       </ul>

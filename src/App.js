@@ -7,11 +7,14 @@ import {
 } from "react-router-dom";
 import { Header } from "./Features/Header/header";
 import { Sidebar } from "./Features/Sidebar/sidebar";
+import { Home } from "./Features/Home/Home";
 
 function App() {
   return (
     <>
       <Header />
+      <main>      <Home/>
+</main>
       <Sidebar />
     </>
   );
