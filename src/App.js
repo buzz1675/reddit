@@ -1,7 +1,13 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import "./App.css";
+import SearchButton from "./Features/button/button";
+import { searchPosts } from "./api/reddit";
 
 function App() {
+  const handleSearchButtonClick = () => {
+    searchPosts();
+  };
+
   return (
     <div className="App">
       <header className="App-header">
@@ -17,6 +23,7 @@ function App() {
         >
           Learn React
         </a>
+        <SearchButton onClick={handleSearchButtonClick} />{" "}
       </header>
     </div>
   );
