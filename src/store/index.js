@@ -1,14 +1,12 @@
-import { createSlice, createSelector } from "@reduxjs/toolkit";
+import { combineReducers } from "redux";
+import { configureStore } from "@reduxjs/toolkit";
 
-const initialState = {
-  posts: [],
-  isLoading: false,
-  error: false,
-  searchTerm: "",
-};
+import redditReducer from "./redditSlice";
+import subRedditReducer from "./subRedditSlice";
 
-const redditSlice = createSlice({
-  name: "redditPosts",
-  initialState,
-  reducers: {},
+export default configureStore({
+  reducer: combineReducers({
+    reddit: redditReducer,
+    subReddit: subRedditReducer,
+  }),
 });

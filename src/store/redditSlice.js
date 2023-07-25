@@ -12,3 +12,5 @@ const redditSlice = createSlice({
   initialState,
   reducers: {},
 });
+
+export default redditSlice.reducer
