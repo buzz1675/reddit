@@ -1,15 +1,20 @@
 import React, { useEffect } from "react";
 import {
-  selectSelectedSubReddit, setSelectedSubReddits,
+  selectSelectedSubReddit,
+  setSelectedSubReddits,
 } from "../../store/redditSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { selectSubReddits, fetchSubReddits } from "../../store/subRedditSlice";
-import './sidebar.css'
+import "./sidebar.css";
 
 export const Sidebar = () => {
+  const holdingImage = "https://cdn.browshot.com/static/images/not-found.png";
   const dispatch = useDispatch();
   const subReddits = useSelector(selectSubReddits);
   const selectedSubReddits = useSelector(selectSelectedSubReddit);
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
 
   useEffect(() => {
     dispatch(fetchSubReddits());
@@ -23,15 +28,30 @@ export const Sidebar = () => {
           <li key={subReddit.url} className="subreddit-item">
             <button
               type="button"
-              onClick={() => dispatch(setSelectedSubReddits(subReddit.url))}
+              className="button"
+              onClick={() => {
+                dispatch(setSelectedSubReddits(subReddit.url));
+                scrollToTop();
+              }}
             >
               {subReddit.display_name}
             </button>
-            <img className="icon" src={subReddit.icon_img} alt={subReddit.display_name} />
+            {subReddit.icon_img ? (
+              <img
+                className="icon"
+                src={subReddit.icon_img}
+                alt={subReddit.display_name}
+              />
+            ) : (
+              <img
+                className="icon holding-image"
+                src={holdingImage}
+                alt="Holding Image"
+              />
+            )}
           </li>
         ))}
       </ul>
     </div>
   );
-  
 };
