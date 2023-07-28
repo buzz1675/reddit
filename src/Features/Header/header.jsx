@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { fetchSearchPosts, getSubPosts } from "../../store/redditSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { setSearchTerm } from "../../store/redditSlice";
+import "./header.css";
 
 export const Header = () => {
   const [localSearch, setLocalSearch] = useState("");
@@ -24,6 +25,7 @@ export const Header = () => {
 
   return (
     <header>
+      <img src="../../img/Reddit-Logo.png" alt="reddit logo" />
       <form onSubmit={onSearchSubmit}>
         <input type="search" onChange={onSearchChange} />
       </form>

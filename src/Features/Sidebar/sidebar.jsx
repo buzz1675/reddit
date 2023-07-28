@@ -4,6 +4,7 @@ import {
 } from "../../store/redditSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { selectSubReddits, fetchSubReddits } from "../../store/subRedditSlice";
+import './sidebar.css'
 
 export const Sidebar = () => {
   const dispatch = useDispatch();
@@ -15,21 +16,22 @@ export const Sidebar = () => {
   }, [dispatch]);
 
   return (
-    <div>
-      <h2>SubReddits</h2>
-      <ul>
+    <div className="subreddits">
+      <h2 className="center">SubReddits</h2>
+      <ul className="subreddit-list">
         {subReddits.map((subReddit) => (
-          <li>
+          <li key={subReddit.url} className="subreddit-item">
             <button
               type="button"
               onClick={() => dispatch(setSelectedSubReddits(subReddit.url))}
             >
               {subReddit.display_name}
             </button>
-            <img src={subReddit.icon_img} alt={subReddit.display_name} />
+            <img className="icon" src={subReddit.icon_img} alt={subReddit.display_name} />
           </li>
         ))}
       </ul>
     </div>
   );
+  
 };
