@@ -3,6 +3,8 @@ import { fetchSearchPosts, getSubPosts } from "../../store/redditSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { setSearchTerm } from "../../store/redditSlice";
 import "./header.css";
+import { AiOutlineMenu } from "react-icons/ai";
+import { AiOutlineSearch } from "react-icons/ai";
 
 export const Header = () => {
   const [localSearch, setLocalSearch] = useState("");
@@ -25,10 +27,24 @@ export const Header = () => {
 
   return (
     <header>
-      <img src="../../img/Reddit-Logo.png" alt="reddit logo" />
+      <img
+        src="https://logos-world.net/wp-content/uploads/2020/10/Reddit-Logo.png"
+        alt="reddit logo"
+        className="logo"
+      />
       <form onSubmit={onSearchSubmit}>
-        <input type="search" onChange={onSearchChange} />
+        <div className="search-container">
+          <input
+            placeholder="Search your topic here!"
+            type="search"
+            onChange={onSearchChange}
+          />
+          <button type="submit" className="search-button">
+            <AiOutlineSearch size="20px" color="grey" />
+          </button>
+        </div>
       </form>
+      <AiOutlineMenu size="40px" color="grey" className="menu_icon" />
     </header>
   );
 };
