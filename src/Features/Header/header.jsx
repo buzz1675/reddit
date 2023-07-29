@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { fetchSearchPosts, getSubPosts } from "../../store/redditSlice";
+import { fetchSearchPosts } from "../../store/redditSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { setSearchTerm } from "../../store/redditSlice";
 import "./header.css";

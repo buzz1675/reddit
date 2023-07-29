@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { fetchSearchPosts } from "../../store/redditSlice";
 import { useSelector } from "react-redux/es/hooks/useSelector";
 import { useDispatch } from "react-redux";
-import { fetchComments, getSubPosts } from "../../store/redditSlice";
+import { fetchComments } from "../../store/redditSlice";
 import { Post } from "../Post/Post";
 import { fetchSubReddits, selectSubReddits } from "../../store/subRedditSlice";
 

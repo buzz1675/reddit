@@ -1,17 +1,15 @@
-import React, { useEffect } from "react";
-import {
-  selectSelectedSubReddit,
-  setSelectedSubReddits,
-} from "../../store/redditSlice";
+import React, { useEffect, useState } from "react";
+import { setSelectedSubReddits } from "../../store/redditSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { selectSubReddits, fetchSubReddits } from "../../store/subRedditSlice";
 import "./sidebar.css";
+import { SubredditItem } from "../subreddits/subreddits";
 
 export const Sidebar = () => {
+  const [selectedSubReddit, setSelectedSubReddit] = useState(null);
   const holdingImage = "https://cdn.browshot.com/static/images/not-found.png";
   const dispatch = useDispatch();
   const subReddits = useSelector(selectSubReddits);
-  const selectedSubReddits = useSelector(selectSelectedSubReddit);
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
@@ -25,31 +23,13 @@ export const Sidebar = () => {
       <h2 className="center">SubReddits</h2>
       <ul className="subreddit-list">
         {subReddits.map((subReddit) => (
-          <li key={subReddit.url} className="subreddit-item">
-            <button
-              type="button"
-              className="button"
-              onClick={() => {
-                dispatch(setSelectedSubReddits(subReddit.url));
-                scrollToTop();
-              }}
-            >
-              {subReddit.display_name}
-            </button>
-            {subReddit.icon_img ? (
-              <img
-                className="icon"
-                src={subReddit.icon_img}
-                alt={subReddit.display_name}
-              />
-            ) : (
-              <img
-                className="icon holding-image"
-                src={holdingImage}
-                alt="Holding Image"
-              />
-            )}
-          </li>
+          <SubredditItem
+            key={subReddit.url}
+            subReddit={subReddit}
+            dispatch={dispatch}
+            selected={subReddit.url === selectedSubReddit}
+            setSelectedSubReddit={setSelectedSubReddit}
+          />
         ))}
       </ul>
     </div>

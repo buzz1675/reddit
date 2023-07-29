@@ -96,23 +96,6 @@ export const fetchSearchPosts = (searchTerm) => async (dispatch) => {
   }
 };
 
-export const getSubPosts = (subReddit) => async (dispatch) => {
-  try {
-    dispatch(startGetPost());
-    const posts = await getSubRedditPosts(subReddit);
-    const postsWithGoodData = posts.map((post) => ({
-      ...post,
-      showingComments: false,
-      comments: [],
-      loadingComments: false,
-      errorComments: false,
-    }));
-    dispatch(getPostSuccess(postsWithGoodData));
-  } catch (error) {
-    dispatch(getPostFailed());
-  }
-};
-
 export const fetchComments = (index, permalink) => async (dispatch) => {
   try {
     dispatch(startGetComments());
