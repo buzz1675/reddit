@@ -6,12 +6,56 @@ div.post_container {
   background-color: white;
   box-shadow: 0px 5px 6px rgba(0, 0, 0, 0.2);
   transition: box-shadow 0.1s ease-in;
+  display: flex;
 }
 
 div.post_container:hover {
   box-shadow: 0px 15px 10px rgba(0, 0, 0, 0.1);
 }
 
-article {
-  display: block;
+div.votes{
+    margin-right: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
+
+p.vote_counter{
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+button.vote{
+    font-size: 2rem;
+    width: auto;
+    height: auto;
+    background-color: white;
+    margin: -10px
+}
+
+button.vote:hover{
+    border: none;
+    background-color: whitesmoke;
+}
+
+p.down_vote{
+    color: red;
+}
+p.up_vote{
+    color: green;
+}
+
+button.up_vote:hover{
+    color: green;
+  }
+  
+  button.down_vote:hover{
+    color: red;
+  }
+  
+  button.up_vote.active{
+    color: green ;
+  }
+  
+  button.down_vote.active{
+    color: red ;
+  }
