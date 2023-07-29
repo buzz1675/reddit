@@ -2,7 +2,6 @@ import { createSlice, createSelector } from "@reduxjs/toolkit";
 import {
   getPosts,
   getSubReddits,
-  getSubRedditPosts,
   getPostComments,
 } from "../api/reddit";
 

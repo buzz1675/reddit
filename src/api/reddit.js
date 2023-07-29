@@ -6,13 +6,6 @@ export const getPosts = async (searchTerm) => {
     return json.data.children.map((post) => post.data)
 };
 
-export const getSubRedditPosts = async (subreddit) => {
-    const response = await fetch(`${rootURL}${subreddit}.json`);
-    const json = await response.json();
-  
-    return json.data.children.map((post) => post.data);
-  };
-
 export const getSubReddits = async () => {
     const reponse = await fetch(`${rootURL}/subreddits.json`)
     const json = await reponse.json();

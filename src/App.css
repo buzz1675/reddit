@@ -15,18 +15,22 @@
 
 .main_container {
   display: grid;
-  grid-template-columns: 2fr 1fr; /* Main section takes up 2 parts, Sidebar takes up 1 part */
-  gap: 20px; /* Add some gap between the two columns */
+  grid-template-columns: 2fr 1fr; 
+  gap: 20px; 
+}
+div.background{
+  background-color: #fcfcfc;
+
 }
 
 .main_content {
-  grid-column: 1; /* The main_content element spans the first column */
+  grid-column: 1; 
 }
 
 .home_wrapper {
-  max-width: 800px; /* Set a maximum width for the Home section */
-  margin: 0 auto; /* Center the Home section horizontally */
-  padding: 20px; /* Add some padding for spacing */
+  max-width: 800px; 
+  margin: 0 auto; 
+  padding: 20px; 
 }
 
 .App-header {

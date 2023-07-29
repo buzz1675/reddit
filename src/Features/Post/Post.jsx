@@ -1,12 +1,14 @@
 import React from "react";
 import Card from "../../Components/Card/Card";
+import './post.css'
 
 export const Post = (props) => {
   const { post, onToggleComments } = props;
 
   return (
+    <article>
     <Card>
-      <div className="post-container">
+      <div className="post_container">
         <h3 className="post-title">{post.title}</h3>
 
         <div className="post-image-container">
@@ -23,5 +25,6 @@ export const Post = (props) => {
 
       </div>
     </Card>
+    </article>
   );
 };
