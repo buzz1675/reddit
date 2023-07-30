@@ -9,15 +9,18 @@ import {
   TiArrowUpThick,
 } from "react-icons/ti";
 import { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { fetchSearchPosts, setSearchTerm } from "../../store/redditSlice";
+import moment from 'moment'
 
 export const Post = (props) => {
   const { post, onToggleComments } = props;
-
+  const dispatch = useDispatch();
   const [voteType, setVoteType] = useState(0);
   const [postUps, setPostUps] = useState(post.ups);
+  const [author, setAuthor] = useState("");
 
   useEffect(() => {
-    // Update the vote count and type when the 'post' prop changes
     setPostUps(post.ups);
     setVoteType(
       post.likes > post.dislikes ? 1 : post.likes < post.dislikes ? -1 : 0
@@ -67,6 +70,11 @@ export const Post = (props) => {
     }
   };
 
+  const onAuthorClick = () => {
+    dispatch(setSearchTerm(`author:${post.author}`));
+    dispatch(fetchSearchPosts(`author:${post.author}`));
+  };
+
   return (
     <article>
       <Card>
@@ -94,7 +102,13 @@ export const Post = (props) => {
 
             <div className="post-details">
               <span className="author-details">
-                <span className="author-username">{post.author}</span>
+                <span className="author-username">
+                  <p>Author</p>
+                  <a href="#" onClick={onAuthorClick}>
+                    {post.author}
+                  </a>
+                </span>
+                <span>{moment.unix(post.created_utc).fromNow()}</span>
               </span>
               <span className="post-comments-container"></span>
             </div>
