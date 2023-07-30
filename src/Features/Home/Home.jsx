@@ -5,7 +5,7 @@ import { useDispatch } from "react-redux";
 import { fetchComments } from "../../store/redditSlice";
 import { Post } from "../Post/Post";
 import { fetchSubReddits, selectSubReddits } from "../../store/subRedditSlice";
-import './home.css'
+import "./home.css";
 
 export const Home = (props) => {
   const dispatch = useDispatch();
@@ -27,15 +27,17 @@ export const Home = (props) => {
 
   return (
     <>
-    
       {posts.length === 0 ? (
         <div>No posts found.</div>
       ) : (
         posts.map((post, index) => (
-          <Post post={post} key={index} onToggleComments={onToggleComments(index)} />
+          <Post
+            post={post}
+            key={post.id}
+            onToggleComments={onToggleComments(index)}
+          />
         ))
       )}
-      
     </>
   );
 };

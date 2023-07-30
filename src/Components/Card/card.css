@@ -8,22 +8,22 @@
     color: var(--color-text-secondary);
   }
 
-  .post-container {
+  .post_container {
     width: 100%;
   }
 
-  .post-image-container {
+  .post_image_container {
     width: 100%;
     overflow: hidden;
     border-radius: var(--radius-2);
   }
 
   
-  .post-image {
+  .post_image {
     width: 100%;
     height: auto;
   }
   
-  .post-image-container.expanded .post-image {
-    transform: scale(2); /* Scale the image to 2x when expanded */
+  .post_image_container.expanded .post_image {
+    transform: scale(2); 
   }

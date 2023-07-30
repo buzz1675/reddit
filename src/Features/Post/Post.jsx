@@ -7,18 +7,21 @@ import {
   TiArrowDownThick,
   TiArrowUpOutline,
   TiArrowUpThick,
+  TiMessage
 } from "react-icons/ti";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { fetchSearchPosts, setSearchTerm } from "../../store/redditSlice";
-import moment from 'moment'
+import moment from "moment";
+import Skeleton from 'react-loading-skeleton';
+import Comment from '../Comment/comment'
+
 
 export const Post = (props) => {
   const { post, onToggleComments } = props;
   const dispatch = useDispatch();
   const [voteType, setVoteType] = useState(0);
   const [postUps, setPostUps] = useState(post.ups);
-  const [author, setAuthor] = useState("");
 
   useEffect(() => {
     setPostUps(post.ups);
@@ -75,6 +78,36 @@ export const Post = (props) => {
     dispatch(fetchSearchPosts(`author:${post.author}`));
   };
 
+  const renderComments = () => {
+    if (post.errorComments) {
+      return (
+        <div>
+          <h3>Error Loading Comments</h3>
+        </div>
+      )
+    }
+    if (post.loadingComments){
+      return (
+        <div>
+          <Skeleton/>
+          <Skeleton/>
+          <Skeleton/>
+          <Skeleton/>
+
+        </div>
+      )
+    }
+    if (post.showingComments) {
+      return (
+        <div>
+          {post.comments.map((comment) => (
+            <Comment comment={comment}/>
+          ))}
+        </div>
+      )
+    }
+  }
+
   return (
     <article>
       <Card>
@@ -95,23 +128,35 @@ export const Post = (props) => {
             </button>
           </div>
           <div className="post_content">
-            <h3 className="post-title">{post.title}</h3>
-            <div className="post-image-container">
-              <img src={post.url} alt="" className="post-image" />
+            <h3 className="post_title">{post.title}</h3>
+            <div className="post_image_container">
+              <img src={post.url} alt="" className="post_image" />
             </div>
 
-            <div className="post-details">
-              <span className="author-details">
-                <span className="author-username">
-                  <p>Author</p>
-                  <a href="#" onClick={onAuthorClick}>
-                    {post.author}
-                  </a>
-                </span>
-                <span>{moment.unix(post.created_utc).fromNow()}</span>
+            <div className="post_details">
+              
+                <a href="#" onClick={onAuthorClick}>
+                  {post.author}
+                </a>
+              
+
+              {moment.unix(post.created_utc).fromNow()}
+
+              <span className="post-comments-container">
+                <button
+                  type="button"
+                  className={`icon-action-button ${
+                    post.showingComments && 'showing-comments'
+                  }`}
+                  onClick={() => onToggleComments(post.permalink)}
+                  aria-label="Show comments"
+                >
+                  <TiMessage className="icon-action" />
+                </button>
+                {post.num_comments}
               </span>
-              <span className="post-comments-container"></span>
             </div>
+            {renderComments()}
           </div>
         </div>
       </Card>

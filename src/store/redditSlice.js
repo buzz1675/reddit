@@ -1,7 +1,6 @@
 import { createSlice, createSelector } from "@reduxjs/toolkit";
 import {
   getPosts,
-  getSubReddits,
   getPostComments,
 } from "../api/reddit";
 
@@ -97,11 +96,11 @@ export const fetchSearchPosts = (searchTerm) => async (dispatch) => {
 
 export const fetchComments = (index, permalink) => async (dispatch) => {
   try {
-    dispatch(startGetComments());
+    dispatch(startGetComments(index));
     const comments = await getPostComments(permalink);
     dispatch(getCommentsSuccess({ index, comments }));
   } catch (error) {
-    dispatch(getCommentsFailed());
+    dispatch(getCommentsFailed(index));
   }
 };
 
