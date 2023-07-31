@@ -7,6 +7,7 @@ import { AiOutlineMenu } from "react-icons/ai";
 import { AiOutlineSearch } from "react-icons/ai";
 import { BsSunFill, BsSun, BsMoonFill, BsMoon } from "react-icons/bs";
 import { useTheme } from "../../utils/ThemeContext";
+import darkmodereddit from '../../img/Reddit-Logo-darkmode.png'
 
 export const Header = () => {
   const [localSearch, setLocalSearch] = useState("");
@@ -60,7 +61,7 @@ export const Header = () => {
   return (
     <header className={`${light()}`}>
       <img
-        src="https://logos-world.net/wp-content/uploads/2020/10/Reddit-Logo.png"
+        src={`${lightMode ? darkmodereddit: 'https://logos-world.net/wp-content/uploads/2020/10/Reddit-Logo.png'}`}
         alt="reddit logo"
         className="logo"
       />

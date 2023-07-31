@@ -9,7 +9,7 @@ div.post_container {
   display: flex;
 }
 div.post_container.dark_mode{
-  background-color: darkgray;
+  background-color:white
 }
 
 
