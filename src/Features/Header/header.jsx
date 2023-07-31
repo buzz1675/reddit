@@ -44,17 +44,17 @@ export const Header = () => {
 
   function renderSun() {
     if (lightMode === true) {
-      return <BsSun size="20px" className={`${light()}`}/>;
+      return <BsSun size="20px" className={`symbol ${light()}`}/>;
     } else {
-      return <BsSunFill size="20px" className={`${light()}`}/>;
+      return <BsSunFill size="20px" className={`symbol ${light()}`}/>;
     }
   }
 
   function renderMoon() {
     if (lightMode === false) {
-      return <BsMoon size="20px" className={`${light()}`}/>;
+      return <BsMoon size="20px" className={`symbol ${light()}`}/>;
     } else {
-      return <BsMoonFill size="20px" className={`${light()}`}/>;
+      return <BsMoonFill size="20px" className={`symbol ${light()}`}/>;
     }
   }
 

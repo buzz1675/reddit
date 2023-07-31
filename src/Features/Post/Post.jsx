@@ -133,14 +133,14 @@ export const Post = (props) => {
         >
           <div className="votes">
             <button
-              className={`vote up_vote ${voteType === 1 && "active"}`}
+              className={`vote up_vote ${voteType === 1 && "active"} ${light()}`}
               onClick={() => handleVote(1)}
             >
               {renderUpVote()}
             </button>
-            <p className={`vote_counter ${getVoteType()}`}>{postUps}</p>
+            <p className={`vote_counter ${getVoteType()} ${light()}`}>{postUps}</p>
             <button
-              className={`vote down_vote ${voteType === -1 && "active"}`}
+              className={`vote down_vote ${voteType === -1 && "active"} ${light()}`}
               onClick={() => handleVote(-1)}
             >
               {renderDownVote()}
@@ -153,7 +153,7 @@ export const Post = (props) => {
             </div>
 
             <div className="post_details">
-              <a href="#" onClick={onAuthorClick}>
+              <a href="#" onClick={onAuthorClick} className={`author ${light()}`}>
                 {post.author}
               </a>
 
@@ -164,7 +164,7 @@ export const Post = (props) => {
                   type="button"
                   className={`icon-action-button ${
                     post.showingComments && "showing-comments"
-                  }`}
+                  } ${light()}`}
                   onClick={() => onToggleComments(post.permalink)}
                   aria-label="Show comments"
                 >

@@ -9,7 +9,8 @@ div.post_container {
   display: flex;
 }
 div.post_container.dark_mode{
-  background-color:white
+  background-color:rgb(48,48,48);
+  color: white;
 }
 
 
@@ -36,6 +37,17 @@ button.vote {
   background-color: white;
   margin: -10px;
 }
+
+button.vote.dark_mode{
+  background-color: rgb(48,48,48);
+  color: white;
+}
+
+button.vote.dark_mode:hover{
+  background-color: rgb(75, 75, 75);;
+}
+
+
 
 button.vote:hover {
   border: none;
@@ -86,9 +98,32 @@ button.icon-action-button {
 
 button.icon-action-button:hover{
   background-color: whitesmoke;
+  color: rgb(0, 225, 255);
+}
+
+button.icon-action-button.dark_mode{
+  background-color: rgb(48,48,48);
+  color: white;
+}
+
+button.icon-action-button.dark_mode:hover{
+  background-color: rgb(75, 75, 75);
 }
 
 .post-comments-container {
   display: flex;
   align-items: center;
+}
+
+a.author.dark_mode{
+  color: white;
+}
+
+a.author.dark_mode:hover{
+background-color: rgb(75, 75, 75);
+color: rgb(0, 225, 255);
+}
+
+a.author.dark_mode:active{
+color: aqua;
 }

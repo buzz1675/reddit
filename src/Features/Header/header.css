@@ -22,11 +22,11 @@ img.logo {
 }
 
 input.dark_mode {
-  background-color: rgb(73, 73, 73);
+  background-color: rgb(75, 75, 75);
 }
 
 input.dark_mode:focus {
-  background-color: rgb(73, 73, 73);
+  background-color: rgb(75, 75, 75);
 }
 
 input.dark_mode::placeholder {
@@ -34,7 +34,7 @@ input.dark_mode::placeholder {
 }
 
 .search-button.dark_mode {
-  background-color: rgb(73, 73, 73);
+  background-color: rgb(75, 75, 75);
   border: 1px solid rgb(37, 37, 37);
 }
 
@@ -86,7 +86,7 @@ header {
 header.dark_mode {
   background-color: rgb(48, 48, 48);
 }
-.dark_mode {
+.symbol.dark_mode {
   color: white;
 }
 

@@ -13,3 +13,8 @@ div.comment_data {
   justify-content: space-between;
 
 }
+
+
+div.comment.dark_mode{
+  color: rgb(167, 4, 4);
+}
