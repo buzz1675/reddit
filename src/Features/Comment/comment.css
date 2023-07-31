@@ -16,5 +16,8 @@ div.comment_data {
 
 
 div.comment.dark_mode{
-  color: rgb(167, 4, 4);
+  color: white;
+  background-color: rgb(75,75,75);
+  box-shadow: 0px 5px 6px rgba(48, 48, 48, 0.2);
+
 }

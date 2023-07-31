@@ -5,7 +5,7 @@ import { useTheme } from "../../utils/ThemeContext";
 
 const Comment = (props) => {
   const { comment } = props;
-  const { lightMode } = useTheme;
+  const { lightMode } = useTheme();
 
 
   const light = () => {
