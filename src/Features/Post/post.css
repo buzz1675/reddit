@@ -108,6 +108,8 @@ button.icon-action-button.dark_mode{
 
 button.icon-action-button.dark_mode:hover{
   background-color: rgb(75, 75, 75);
+    color: rgb(0, 225, 255);
+
 }
 
 .post-comments-container {
