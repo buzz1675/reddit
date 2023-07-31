@@ -25,6 +25,7 @@ export const Home = (props) => {
     return getComments;
   };
 
+
   return (
     <>
       {posts.length === 0 ? (

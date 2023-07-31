@@ -72,6 +72,7 @@ export const Header = () => {
             type="search"
             onChange={onSearchChange}
             className={`${light()}`}
+            value={localSearch}
           />
           <button type="submit" className={`search-button ${light()}`}>
             <AiOutlineSearch size="20px" color="grey" />

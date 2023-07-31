@@ -20,7 +20,9 @@
 }
 div.background{
   background-color: #fcfcfc;
-
+}
+div.background.dark_mode{
+  background-color: rgb(19, 19, 19);
 }
 
 .main_content {

@@ -4,6 +4,16 @@ import { useTheme } from "../../utils/ThemeContext";
 
 export const SubredditItem = ({ subReddit, dispatch, selected, setSelectedSubReddit }) => {
   const [randomColor, setRandomColor] = useState(getRandomColor());
+  const { lightMode } = useTheme()
+
+
+  const light = () => {
+    if (lightMode === true) {
+      return "dark_mode";
+    } else {
+      return "light_mode";
+    }
+  };
 
   function getRandomColor() {
     return `rgb(${Math.floor(Math.random() * 256)}, ${Math.floor(
@@ -21,7 +31,7 @@ export const SubredditItem = ({ subReddit, dispatch, selected, setSelectedSubRed
     <li key={subReddit.url} className="subreddit-item">
       <button
         type="button"
-        className={`button ${selected ? 'selected' : ''}`}
+        className={`button ${selected ? 'selected' : ''} ${light()}`}
         onClick={() => {
           dispatch(setSelectedSubReddits(subReddit.url));
           scrollToTop();
@@ -43,7 +53,7 @@ export const SubredditItem = ({ subReddit, dispatch, selected, setSelectedSubRed
             style={{ border: `3px solid ${randomColor}` }}
           />
         )}
-        {subReddit.display_name}
+        <span className={`name ${light()}`}>{subReddit.display_name}</span>
       </button>
     </li>
   );

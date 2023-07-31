@@ -13,14 +13,21 @@ export const Sidebar = () => {
   const subReddits = useSelector(selectSubReddits);
   const { lightMode } = useTheme();
 
+  const light = () => {
+    if (lightMode === true) {
+      return "dark_mode";
+    } else {
+      return "light_mode";
+    }
+  };
 
   useEffect(() => {
     dispatch(fetchSubReddits());
   }, [dispatch]);
 
   return (
-    <div className="subreddits">
-      <h2 className="center">SubReddits</h2>
+    <div className={`subreddits ${light()}`}>
+      <h2 className={`center ${light()}`}>SubReddits</h2>
       <ul className="subreddit-list">
         {subReddits.map((subReddit) => (
           <SubredditItem
@@ -29,6 +36,7 @@ export const Sidebar = () => {
             dispatch={dispatch}
             selected={subReddit.url === selectedSubReddit}
             setSelectedSubReddit={setSelectedSubReddit}
+            
           />
         ))}
       </ul>

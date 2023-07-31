@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useContext} from "react";
 import {
   BrowserRouter as Router,
   Route,
@@ -9,13 +9,22 @@ import { Header } from "./Features/Header/header";
 import { Sidebar } from "./Features/Sidebar/sidebar";
 import { Home } from "./Features/Home/Home";
 import "./App.css";
-import { ThemeProvider } from "./utils/ThemeContext";
+import { useTheme } from "./utils/ThemeContext";
 
 function App() {
+  const { lightMode } = useTheme();
+
+  const light = () => {
+    if (lightMode === true) {
+      return "dark_mode";
+    } else {
+      return "light_mode";
+    }
+  };
+  
   return (
     <>
-      <ThemeProvider>
-      <div className="background">
+      <div className={`background ${light()}`}>
         <Header />
         <div className="main_container">
           <main className="main_content">
@@ -23,10 +32,9 @@ function App() {
               <Home />
             </div>
           </main>
-          <Sidebar />
+          <Sidebar/>
         </div>
       </div>
-    </ThemeProvider>
     </>
   );
 }

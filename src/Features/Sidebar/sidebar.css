@@ -1,6 +1,9 @@
 h2.center {
   text-align: left;
 }
+h2.center.dark_mode{
+  color: white;
+}
 
 .subreddits {
   position: absolute;
@@ -11,7 +14,14 @@ h2.center {
   width: 20vw;
   height: 1700px;
   box-shadow: -5px 4px 6px rgba(0, 0, 0, 0.1);
+}
 
+.subreddits.dark_mode{
+  background-color: rgb(48,48,48);
+}
+
+.name.dark_mode{
+  color: black;
 }
 
 .subreddit-list {
@@ -53,6 +63,13 @@ button.selected::after {
   margin: -6px;
   width: 5px; 
   background-color: orangered; 
+}
+
+button.dark_mode{
+  background-color: rgb(75, 75, 75);
+}
+button.dark_mode.selected{
+  background-color: rgba(255, 69, 0, 0.6);
 }
 
 .icon {

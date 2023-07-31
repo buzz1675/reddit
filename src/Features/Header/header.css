@@ -23,6 +23,7 @@ img.logo {
 
 input.dark_mode {
   background-color: rgb(75, 75, 75);
+  color: white;
 }
 
 input.dark_mode:focus {
