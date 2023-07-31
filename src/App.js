@@ -9,10 +9,12 @@ import { Header } from "./Features/Header/header";
 import { Sidebar } from "./Features/Sidebar/sidebar";
 import { Home } from "./Features/Home/Home";
 import "./App.css";
+import { ThemeProvider } from "./utils/ThemeContext";
 
 function App() {
   return (
     <>
+      <ThemeProvider>
       <div className="background">
         <Header />
         <div className="main_container">
@@ -23,7 +25,8 @@ function App() {
           </main>
           <Sidebar />
         </div>
-      </div>{" "}
+      </div>
+    </ThemeProvider>
     </>
   );
 }

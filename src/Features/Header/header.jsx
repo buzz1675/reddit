@@ -5,11 +5,22 @@ import { setSearchTerm } from "../../store/redditSlice";
 import "./header.css";
 import { AiOutlineMenu } from "react-icons/ai";
 import { AiOutlineSearch } from "react-icons/ai";
+import { BsSunFill, BsSun, BsMoonFill, BsMoon } from "react-icons/bs";
+import { useTheme } from "../../utils/ThemeContext";
 
 export const Header = () => {
   const [localSearch, setLocalSearch] = useState("");
   const searchTerm = useSelector((state) => state.reddit.searchTerm);
   const dispatch = useDispatch();
+  const {lightMode, setLightMode} = useTheme();
+
+  const light = () => {
+    if (lightMode === true) {
+      return "dark_mode";
+    } else {
+      return "light_mode";
+    }
+  };
 
   const onSearchChange = (e) => {
     setLocalSearch(e.target.value);
@@ -25,8 +36,29 @@ export const Header = () => {
     dispatch(fetchSearchPosts(localSearch));
   };
 
+  const lightmodeToggle = () => {
+    console.log(lightMode);
+    setLightMode((prevLightMode) => !prevLightMode);
+  };
+
+  function renderSun() {
+    if (lightMode === true) {
+      return <BsSun size="20px" className={`${light()}`}/>;
+    } else {
+      return <BsSunFill size="20px" className={`${light()}`}/>;
+    }
+  }
+
+  function renderMoon() {
+    if (lightMode === false) {
+      return <BsMoon size="20px" className={`${light()}`}/>;
+    } else {
+      return <BsMoonFill size="20px" className={`${light()}`}/>;
+    }
+  }
+
   return (
-    <header>
+    <header className={`${light()}`}>
       <img
         src="https://logos-world.net/wp-content/uploads/2020/10/Reddit-Logo.png"
         alt="reddit logo"
@@ -38,13 +70,23 @@ export const Header = () => {
             placeholder="Search your topic here!"
             type="search"
             onChange={onSearchChange}
+            className={`${light()}`}
           />
-          <button type="submit" className="search-button">
+          <button type="submit" className={`search-button ${light()}`}>
             <AiOutlineSearch size="20px" color="grey" />
           </button>
         </div>
       </form>
-      <AiOutlineMenu size="40px" color="grey" className="menu_icon" />
+      <div className="lightmode_toggle">
+        {renderSun()}
+        <div
+          className={`switch ${lightMode ? "on" : "off"}`}
+          onClick={lightmodeToggle}
+        >
+          <div className="dot"></div>
+        </div>
+        {renderMoon()}
+      </div>
     </header>
   );
 };

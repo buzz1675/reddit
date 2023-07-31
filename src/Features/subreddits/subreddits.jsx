@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { setSelectedSubReddits } from "../../store/redditSlice";
+import { useTheme } from "../../utils/ThemeContext";
 
 export const SubredditItem = ({ subReddit, dispatch, selected, setSelectedSubReddit }) => {
   const [randomColor, setRandomColor] = useState(getRandomColor());

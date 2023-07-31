@@ -21,7 +21,22 @@ img.logo {
   outline: none;
 }
 
+input.dark_mode {
+  background-color: rgb(73, 73, 73);
+}
 
+input.dark_mode:focus {
+  background-color: rgb(73, 73, 73);
+}
+
+input.dark_mode::placeholder {
+  color: white;
+}
+
+.search-button.dark_mode {
+  background-color: rgb(73, 73, 73);
+  border: 1px solid rgb(37, 37, 37);
+}
 
 .search-button {
   position: absolute;
@@ -33,7 +48,7 @@ img.logo {
   background-color: white;
   border: 1px solid lightgray;
   cursor: pointer;
- 
+
   padding: 10px;
   border-top-right-radius: 25px;
   border-bottom-right-radius: 25px;
@@ -68,8 +83,54 @@ header {
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
 }
 
+header.dark_mode {
+  background-color: rgb(48, 48, 48);
+}
+.dark_mode {
+  color: white;
+}
+
 form {
   margin: auto;
 }
 
+div.lightmode_toggle {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-right: 40px;
+}
+.switch {
+  margin: 10px;
+  width: 50px;
+  height: 30px;
+  border-radius: 15px;
+  background-color: #ccc;
+  position: relative;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
 
+.dot {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: white;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 5px;
+  transition: left 0.2s ease;
+}
+
+.switch.on {
+  background-color: orangered;
+}
+
+.switch.off .dot {
+  left: 5px; /* Adjust this value to set the initial position of the dot for OFF state */
+}
+
+.switch.on .dot {
+  left: 25px; /* Adjust this value to set the position of the dot for ON state */
+}

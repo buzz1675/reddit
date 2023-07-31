@@ -4,15 +4,15 @@ import { useDispatch, useSelector } from "react-redux";
 import { selectSubReddits, fetchSubReddits } from "../../store/subRedditSlice";
 import "./sidebar.css";
 import { SubredditItem } from "../subreddits/subreddits";
+import { useTheme } from "../../utils/ThemeContext";
 
 export const Sidebar = () => {
   const [selectedSubReddit, setSelectedSubReddit] = useState(null);
   const holdingImage = "https://cdn.browshot.com/static/images/not-found.png";
   const dispatch = useDispatch();
   const subReddits = useSelector(selectSubReddits);
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  };
+  const { lightMode } = useTheme();
+
 
   useEffect(() => {
     dispatch(fetchSubReddits());

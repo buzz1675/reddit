@@ -15,6 +15,7 @@ import { fetchSearchPosts, setSearchTerm } from "../../store/redditSlice";
 import moment from "moment";
 import Skeleton from "react-loading-skeleton";
 import Comment from "../Comment/comment";
+import { useTheme } from "../../utils/ThemeContext";
 
 export const Post = (props) => {
   const { post, onToggleComments } = props;
@@ -22,6 +23,15 @@ export const Post = (props) => {
   const [voteType, setVoteType] = useState(0);
   const [postUps, setPostUps] = useState(post.ups);
   const [visibleComments, setVisibleComments] = useState(5);
+  const { lightMode } = useTheme();
+
+  const light = () => {
+    if (lightMode === true) {
+      return "dark_mode";
+    } else {
+      return "light_mode";
+    }
+  };
 
   useEffect(() => {
     setPostUps(post.ups);
@@ -108,8 +118,8 @@ export const Post = (props) => {
             <Comment comment={comment} />
           ))}
           {visibleComments < post.comments.length && (
-              <button onClick={handleMoreComments}>Show More Comments</button>
-            )}
+            <button onClick={handleMoreComments}>Show More Comments</button>
+          )}
         </div>
       );
     }
@@ -118,7 +128,9 @@ export const Post = (props) => {
   return (
     <article>
       <Card>
-        <div className="post_container">
+        <div
+          className={`post_container ${light()}`}
+        >
           <div className="votes">
             <button
               className={`vote up_vote ${voteType === 1 && "active"}`}
