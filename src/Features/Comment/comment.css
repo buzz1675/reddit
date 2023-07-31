@@ -1,0 +1,15 @@
+div.comment{
+    border-radius: 10px;
+    padding: 10px;
+    margin-top: 20px;
+    background-color: white;
+    box-shadow: 0px 5px 6px rgba(0, 0, 0, 0.2);
+    transition: box-shadow 0.1s ease-in;
+}
+
+div.comment_data {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+}
