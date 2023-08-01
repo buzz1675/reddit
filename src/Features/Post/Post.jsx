@@ -118,7 +118,7 @@ export const Post = (props) => {
             <Comment comment={comment} />
           ))}
           {visibleComments < post.comments.length && (
-            <button onClick={handleMoreComments}>Show More Comments</button>
+            <button className={`load_comments_button ${light()}`}onClick={handleMoreComments}>Show More Comments</button>
           )}
         </div>
       );

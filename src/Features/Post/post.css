@@ -8,12 +8,10 @@ div.post_container {
   transition: box-shadow 0.1s ease-in;
   display: flex;
 }
-div.post_container.dark_mode{
-  background-color:rgb(48,48,48);
+div.post_container.dark_mode {
+  background-color: rgb(48, 48, 48);
   color: white;
 }
-
-
 
 div.post_container:hover {
   box-shadow: 0px 15px 10px rgba(0, 0, 0, 0.1);
@@ -38,16 +36,14 @@ button.vote {
   margin: -10px;
 }
 
-button.vote.dark_mode{
-  background-color: rgb(48,48,48);
+button.vote.dark_mode {
+  background-color: rgb(48, 48, 48);
   color: white;
 }
 
-button.vote.dark_mode:hover{
-  background-color: rgb(75, 75, 75);;
+button.vote.dark_mode:hover {
+  background-color: rgb(75, 75, 75);
 }
-
-
 
 button.vote:hover {
   border: none;
@@ -96,20 +92,19 @@ button.icon-action-button {
   border: none;
 }
 
-button.icon-action-button:hover{
+button.icon-action-button:hover {
   background-color: whitesmoke;
   color: rgb(0, 225, 255);
 }
 
-button.icon-action-button.dark_mode{
-  background-color: rgb(48,48,48);
+button.icon-action-button.dark_mode {
+  background-color: rgb(48, 48, 48);
   color: white;
 }
 
-button.icon-action-button.dark_mode:hover{
+button.icon-action-button.dark_mode:hover {
   background-color: rgb(75, 75, 75);
-    color: rgb(0, 225, 255);
-
+  color: rgb(0, 225, 255);
 }
 
 .post-comments-container {
@@ -117,15 +112,33 @@ button.icon-action-button.dark_mode:hover{
   align-items: center;
 }
 
-a.author.dark_mode{
+a.author.dark_mode {
   color: white;
 }
 
-a.author.dark_mode:hover{
-background-color: rgb(75, 75, 75);
-color: rgb(0, 225, 255);
+a.author.dark_mode:hover {
+  background-color: rgb(75, 75, 75);
+  color: rgb(0, 225, 255);
 }
 
-a.author.dark_mode:active{
-color: aqua;
+a.author.dark_mode:active {
+  color: aqua;
 }
+
+button.load_comments_button {
+  display: block;
+  text-align: center;
+
+  margin: 15px auto;
+  text-align: center;
+  border-radius: 25px;
+  background-color: orangered;
+}
+
+button.load_comments_button:hover{
+  background-color: rgba(255, 68, 0, 0.699);
+}
+
+
+
+
