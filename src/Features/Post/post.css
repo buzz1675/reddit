@@ -132,13 +132,18 @@ button.load_comments_button {
   margin: 15px auto;
   text-align: center;
   border-radius: 25px;
-  background-color: orangered;
+  background-color: whitesmoke;
 }
 
 button.load_comments_button:hover{
-  background-color: rgba(255, 68, 0, 0.699);
+  background-color: orangered;
 }
 
+
+button.load_comments_button.dark_mode {
+
+  background-color: orangered;
+}
 
 
 
