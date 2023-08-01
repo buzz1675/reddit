@@ -3,7 +3,7 @@ import React, { createContext, useState, useContext, useEffect } from "react";
 const ThemeContext = createContext();
 
 export const ThemeProvider = ({ children }) => {
-  const [lightMode, setLightMode] = useState(true);
+  const [lightMode, setLightMode] = useState(false);
 
   useEffect(() => {
     const savedMode = localStorage.getItem("lightMode");
