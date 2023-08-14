@@ -147,3 +147,33 @@ button.load_comments_button.dark_mode {
 
 
 
+
+@keyframes pulse-wave {
+  0%, 100% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.pulse-skeleton {
+  height: 20px;
+width: auto;
+margin: 3px;
+border-radius: 5px;
+background-color: lightgray;
+  animation: pulse-wave 1s ease-in-out infinite;
+}
+
+.vote_counter.pulse-skeleton {
+  font-size: 1.2rem;
+  font-weight: bold;
+  width: 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+div.tall{
+  height: 300px;
+}

@@ -104,10 +104,10 @@ export const Post = (props) => {
     if (post.loadingComments) {
       return (
         <div>
-          <Skeleton />
-          <Skeleton />
-          <Skeleton />
-          <Skeleton />
+          <div className="pulse-skeleton" width={210} height={118}/>
+          <div className="pulse-skeleton" width={210} height={118}/>
+          <div className="pulse-skeleton" width={210} height={118}/>
+          <div className="pulse-skeleton" width={210} height={118}/>
         </div>
       );
     }

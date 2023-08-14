@@ -6,6 +6,8 @@ import { fetchComments } from "../../store/redditSlice";
 import { Post } from "../Post/Post";
 import { fetchSubReddits, selectSubReddits } from "../../store/subRedditSlice";
 import "./home.css";
+import {PostLoading} from "../Post/postLoading";
+import { AnimatedList } from 'react-animated-list';
 
 export const Home = (props) => {
   const dispatch = useDispatch();
@@ -25,6 +27,14 @@ export const Home = (props) => {
     return getComments;
   };
 
+  if (isLoading) {
+    return (
+      <AnimatedList>
+        {" "}
+        {Array(Math.floor(Math.random() * 9) + 2).fill(<PostLoading />)}
+      </AnimatedList>
+    );
+  }
 
   return (
     <>
