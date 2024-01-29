@@ -68,7 +68,7 @@ export const Header = () => {
       <form onSubmit={onSearchSubmit}>
         <div className="search-container">
           <input
-            placeholder="Search your topic here!"
+            placeholder="Search your theme here!"
             type="search"
             onChange={onSearchChange}
             className={`${light()}`}
