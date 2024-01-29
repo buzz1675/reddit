@@ -3,7 +3,6 @@ import { fetchSearchPosts } from "../../store/redditSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { setSearchTerm } from "../../store/redditSlice";
 import "./header.css";
-import { AiOutlineMenu } from "react-icons/ai";
 import { AiOutlineSearch } from "react-icons/ai";
 import { BsSunFill, BsSun, BsMoonFill, BsMoon } from "react-icons/bs";
 import { useTheme } from "../../utils/ThemeContext";
@@ -59,7 +58,7 @@ export const Header = () => {
   }
 
   return (
-    <header className={`${light()}`}>
+    <header className={`${light()} header`}>
       <img
         src={`${lightMode ? darkmodereddit: 'https://logos-world.net/wp-content/uploads/2020/10/Reddit-Logo.png'}`}
         alt="reddit logo"

@@ -1,6 +1,6 @@
 div.post_container {
-  width: 50vw;
-  padding: 50px;
+  width: 100%;
+  padding: 5%;
   margin-top: 30px;
   border-radius: 10px;
   background-color: white;
@@ -82,6 +82,7 @@ div.post_details {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  overflow-wrap: break-word;
 }
 
 button.icon-action-button {
@@ -176,4 +177,14 @@ background-color: lightgray;
 
 div.tall{
   height: 300px;
+}
+
+div.comment_list{
+  display: flex;
+  flex-direction: column;
+  width: auto;
+}
+
+a.author {
+  hyphens: auto;
 }

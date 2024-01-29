@@ -15,8 +15,8 @@ img.logo {
   height: 40px;
   border-radius: 25px;
   border: none;
-  padding: 0 40px 0 20px; /* Add padding on the right to accommodate the icon */
-  width: 350px;
+  padding: 0 40px 0 20px; 
+  width: 100%;
   text-align: center;
   outline: none;
 }
@@ -58,7 +58,7 @@ input.dark_mode::placeholder {
 }
 
 .search-button:hover {
-  background-color: red; /* Set the background color to red on hover */
+  background-color: red; 
 }
 
 form input {
@@ -77,7 +77,8 @@ form :focus {
 }
 
 header {
-  height: 75px;
+  height: auto;
+  padding: 10px 0;
   display: flex;
   align-items: center;
   background-color: whitesmoke;
@@ -129,9 +130,28 @@ div.lightmode_toggle {
 }
 
 .switch.off .dot {
-  left: 5px; /* Adjust this value to set the initial position of the dot for OFF state */
+  left: 5px; 
 }
 
 .switch.on .dot {
-  left: 25px; /* Adjust this value to set the position of the dot for ON state */
+  left: 25px; 
 }
+
+
+
+@media screen and (max-width:768px) {
+  .header{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+  }
+
+  div.lightmode_toggle{
+    margin: 10px auto;
+  }
+  img.logo{
+    margin: auto;
+  }
+  }

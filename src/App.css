@@ -58,3 +58,63 @@ div.background.dark_mode{
     transform: rotate(360deg);
   }
 }
+
+@media screen and (max-width:768px) {
+h2.center{
+  text-align: center;
+}
+
+div.post_container{
+  width: 80%;
+  margin: 20px auto;
+}
+
+  div.main_container{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .subreddits{
+    position: relative;
+    width: auto;
+  }
+
+  li.subreddit-item {
+    width: 100%;
+  }
+
+  div.post_container{
+    display: flex;
+    flex-direction: column;
+  }
+
+  div.post_details{
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  div.post_content{
+    display: flex;
+    flex-wrap: wrap;
+  }
+  div.votes{
+    margin-right: 0;
+  }
+
+  div.comment{
+    width: 100%;
+    padding: 0
+  }
+
+ h3.post_title{
+  display: flex;
+  flex-wrap: wrap;
+ }
+.comment_body {
+  display: flex;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-word;
+}
+
+}

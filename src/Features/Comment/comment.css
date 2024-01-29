@@ -1,6 +1,6 @@
 div.comment{
     border-radius: 10px;
-    padding: 10px;
+    padding: 0 10px;
     margin-top: 20px;
     background-color: white;
     box-shadow: 0px 5px 6px rgba(0, 0, 0, 0.2);
@@ -11,7 +11,13 @@ div.comment_data {
   display: flex;
   align-items: center;
   justify-content: space-between;
+flex-wrap: wrap;
+overflow-wrap: break-word;
+}
 
+div.comment_body{
+  display: flex;
+  flex-wrap: wrap;
 }
 
 

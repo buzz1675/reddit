@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import Card from "../../Components/Card/Card";
 import "./post.css";
-import shortenNumber from "../../utils/shortenNumber";
 import {
   TiArrowDownOutline,
   TiArrowDownThick,
@@ -13,7 +12,6 @@ import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { fetchSearchPosts, setSearchTerm } from "../../store/redditSlice";
 import moment from "moment";
-import Skeleton from "react-loading-skeleton";
 import Comment from "../Comment/comment";
 import { useTheme } from "../../utils/ThemeContext";
 
@@ -113,7 +111,7 @@ export const Post = (props) => {
     }
     if (post.showingComments) {
       return (
-        <div>
+        <div className="comment_list">
           {limitedComments.map((comment) => (
             <Comment comment={comment} />
           ))}

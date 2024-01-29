@@ -4,15 +4,13 @@ import { useSelector } from "react-redux/es/hooks/useSelector";
 import { useDispatch } from "react-redux";
 import { fetchComments } from "../../store/redditSlice";
 import { Post } from "../Post/Post";
-import { fetchSubReddits, selectSubReddits } from "../../store/subRedditSlice";
-import "./home.css";
-import {PostLoading} from "../Post/postLoading";
-import { AnimatedList } from 'react-animated-list';
+import { PostLoading } from "../Post/postLoading";
+import { AnimatedList } from "react-animated-list";
 
-export const Home = (props) => {
+export const Home = () => {
   const dispatch = useDispatch();
   const reddit = useSelector((state) => state.reddit);
-  const { isLoading, error, searchTerm, selectedSubReddit } = reddit;
+  const { isLoading, selectedSubReddit } = reddit;
   const posts = useSelector((state) => state.reddit.posts);
 
   useEffect(() => {
